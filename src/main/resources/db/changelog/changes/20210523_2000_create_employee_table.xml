@@ -1,0 +1,40 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+    <changeSet  id="20210523_2000_create_employee_table"  author="Imre">
+        <createTable  tableName="employee">
+            <column  name="id"  type="int" autoIncrement="true">
+                <constraints  primaryKey="true"  nullable="false"/>
+            </column>
+            <column  name="user_id"  type="varchar(50)">
+                <constraints  nullable="false"/>
+            </column>
+            <column  name="user_name"  type="varchar(50)">
+                <constraints  nullable="false"/>
+            </column>
+            <column  name="first_name"  type="varchar(50)">
+                <constraints  nullable="false"/>
+            </column>
+            <column  name="last_name"  type="varchar(50)">
+                <constraints  nullable="false"/>
+            </column>
+            <column  name="email"  type="varchar(50)">
+                <constraints  nullable="false" unique="true"/>
+            </column>
+            <column  name="encrypted_password"  type="varchar(255)">
+                <constraints  nullable="false"/>
+            </column>
+            <column  name="email_verification_token"  type="varchar(255)">
+            </column>
+            <column  name="email_verification_status"  type="varchar(255)">
+                <constraints  nullable="false"/>
+            </column>
+            <column  name="role"  type="tinyint">
+                <constraints  nullable="false"/>
+            </column>
+            <column name="position" type="varchar(50)"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

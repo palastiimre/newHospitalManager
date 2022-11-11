@@ -1,0 +1,21 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+    <changeSet  id="20221109_0800_create_default_hospital_director"  author="Imre">
+        <insert tableName="employee">
+            <column  name="id"  type="int" autoIncrement="true"/>
+            <column  name="user_id"  type="varchar(50)" value="1"/>
+            <column  name="user_name"  type="varchar(50)" value="default-director"/>
+            <column  name="first_name"  type="varchar(50)" value="igazgato"/>
+            <column  name="last_name"  type="varchar(50)" value="igazgato"/>
+            <column  name="email"  type="varchar(50)" value="igazgato@gmail.com"/>
+            <column  name="encrypted_password"  type="varchar(255)" value="$2a$10$H4gJv0xOxT.dI3/X6GuPDurjXsLU3VXP3UBeYJ2AwvjaZR5OrKjf."/>
+            <column  name="email_verification_token"  type="varchar(255)" value="0"/>
+            <column  name="email_verification_status"  type="varchar(255)" value="0"/>
+            <column  name="role"  type="tinyint" value="0"/>
+            <column name="position" type="varchar(50)" value="igazgato"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

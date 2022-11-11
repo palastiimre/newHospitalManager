@@ -1,0 +1,14 @@
+version: '3.9'
+services:
+  mysqldb:
+    image: mysql:8.0
+    restart: always
+    ports:
+      - 3310:3306
+    volumes:
+      - db:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: test1234
+      MYSQL_DATABASE: hospital_manager_db
+volumes:
+  db:

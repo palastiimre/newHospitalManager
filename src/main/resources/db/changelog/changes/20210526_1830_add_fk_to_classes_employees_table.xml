@@ -1,0 +1,14 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+    <changeSet  id="20210526_1830_add_fk_to_classes_employees_table"  author="Imre">
+        <addForeignKeyConstraint baseTableName="classes_employees" baseColumnNames="employee_id"
+                                 constraintName="fk_classes_employees_employee" referencedTableName="employee"
+                                 referencedColumnNames="id"/>
+        <addForeignKeyConstraint baseTableName="classes_employees" baseColumnNames="hospital_class_id"
+                                 constraintName="fk_classes_employees_hospitalClass" referencedTableName="hospital_class"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+</databaseChangeLog>
