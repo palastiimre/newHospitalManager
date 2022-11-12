@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {EmployeeService} from "../services/employee.service";
+import {FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-registration',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistrationComponent implements OnInit {
 
-  constructor() { }
+  constructor(private employeeService: EmployeeService) { }
 
   ngOnInit(): void {
+  }
+
+  submitRegistration(){
+
   }
 
 }
