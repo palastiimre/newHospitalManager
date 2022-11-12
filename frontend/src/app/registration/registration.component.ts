@@ -9,13 +9,12 @@ import {FormGroup} from "@angular/forms";
 })
 export class RegistrationComponent implements OnInit {
 
-  constructor(private employeeService: EmployeeService) { }
+  constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {  }
 
-  submitRegistration(){
-
-  }
+  // submitRegistration(){
+  //
+  // }
 
 }
