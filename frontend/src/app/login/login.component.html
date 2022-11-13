@@ -5,13 +5,13 @@
         <h1 class="fw-bolder mb-0 fs-2 text-center">Belépés</h1>
       </div>
       <div class="modal-body p-5 pt-0">
-        <form class="">
+        <form class="login-form" [formGroup]="loginForm" (ngSubmit)="login()">
           <div class="form-floating mb-3">
-            <input type="email" class="form-control rounded-3" id="floatingInput" placeholder="name@example.com">
+            <input type="email" class="form-control rounded-3" id="floatingInput" formControlName="email" placeholder="name@example.com">
             <label for="floatingInput">Email cím</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="password" class="form-control rounded-3" id="floatingPassword" placeholder="Password">
+            <input type="password" class="form-control rounded-3" id="floatingPassword" formControlName="password" placeholder="Password">
             <label for="floatingPassword">Jelszó</label>
           </div>
           <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Belépés</button>
