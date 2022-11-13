@@ -3,6 +3,7 @@ import {environment} from "../../environments/environment";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {EmployeeRegistrationRequestModel} from "../models/EmployeeRegistrationRequestModel";
+import {EmployeeLoginRequestModel} from "../models/EmployeeLoginRequestModel";
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,7 @@ export class EmployeeService {
   }
 
 
-  loginEmployee(){
-
+  loginEmployee(employeeLoginModel:EmployeeLoginRequestModel):Observable<any> {
+    return this.http.post(this.LOGIN_URL,employeeLoginModel);
   }
 }
