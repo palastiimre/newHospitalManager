@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {EmployeeService} from "../services/employee.service";
-import {FormGroup} from "@angular/forms";
+import {FormBuilder, Validators} from "@angular/forms";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-registration',
@@ -9,12 +10,43 @@ import {FormGroup} from "@angular/forms";
 })
 export class RegistrationComponent implements OnInit {
 
-  constructor() { }
+  registrationForm = this.formBuilder.group({
+    userName: [null, [Validators.required]],
+    firstName: [null, [Validators.required]],
+    lastName: [null, [Validators.required]],
+    email: [null, [Validators.required]],
+    role: [null, [Validators.required]],
+    position: [null, [Validators.required]],
+    password: [null, [Validators.required]],
+    confirmPassword: [null, [Validators.required]],
+  });
 
-  ngOnInit(): void {  }
+  constructor(private formBuilder: FormBuilder, private employeeService: EmployeeService,private router: Router) {
+  }
 
-  // submitRegistration(){
-  //
-  // }
+  ngOnInit(): void {
+  }
+
+
+  submitRegistration() {
+    let employeeFormModel: Partial<any> = this.registrationForm.value;
+
+    console.log(employeeFormModel)
+
+    this.employeeService.registerEmployee(employeeFormModel)
+      .subscribe({
+        next: (response) => {
+          console.log(response)
+        },
+        error: (error) => {
+          console.log(error)
+        },
+        complete: () => {
+          console.log('completed')
+          this.router.navigate(['/login'])
+        }
+
+      })
+  }
 
 }
