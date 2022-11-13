@@ -1,1 +1,54 @@
-<p>registration works!</p>
+<div class="modal modal-signin position-static d-block bg-light py-5" tabindex="-1" role="dialog" id="modalSignin">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content rounded-4 shadow">
+      <div class="p-5 pb-4 border-bottom-0">
+        <h1 class="fw-bolder mb-0 fs-2 text-center">Regisztráció</h1>
+      </div>
+      <div class="modal-body p-5 pt-0">
+        <form class="login-form" [formGroup]="registrationForm" (ngSubmit)="submitRegistration()">
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control rounded-3" id="floatingInput1" formControlName="userName" placeholder="name@example.com">
+            <label for="floatingInput1">Felhasználónév</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control rounded-3" id="floatingPassword" formControlName="lastName" placeholder="Password" required>
+            <label for="floatingPassword">Vezetéknév</label>
+            <div class="valid-feedback">
+              Looks good!
+            </div>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control rounded-3" id="floatingInput2" formControlName="firstName" placeholder="name@example.com">
+            <label for="floatingInput2">Keresztnév</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="email" class="form-control rounded-3" id="floatingInput3" formControlName="email" placeholder="name@example.com">
+            <label for="floatingInput3">Email cím</label>
+          </div>
+          <div class="mb-3">
+            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" formControlName="role">
+              <option selected>Státusz</option>
+              <option value="DOCTOR">Osztályos orvos</option>
+              <option value="ADMINISTRATOR">Adminisztrátor</option>
+              <option value="NURSE">Nővér</option>
+              <option value="CONTRIBUTOR">Közreműködő</option>
+            </select>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control rounded-3" id="floatingInput4" formControlName="position" placeholder="name@example.com">
+            <label for="floatingInput4">Beosztás</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="password" class="form-control rounded-3" id="floatingInput5" formControlName="password"placeholder="name@example.com">
+            <label for="floatingInput5">Jelszó</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="password" class="form-control rounded-3" id="floatingInput6" formControlName="confirmPassword" placeholder="name@example.com">
+            <label for="floatingInput5">Jelszó mégegyszer</label>
+          </div>
+          <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Regisztráció</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

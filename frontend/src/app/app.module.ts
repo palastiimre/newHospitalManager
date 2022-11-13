@@ -10,6 +10,9 @@ import { BsDropdownModule} from 'ngx-bootstrap/dropdown';
 import { AlertModule } from 'ngx-bootstrap/alert';
 import { NavbarComponent } from './navbar/navbar.component';
 import { RouterModule, Routes } from '@angular/router';
+import {ReactiveFormsModule} from "@angular/forms";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {HttpRequestInterceptor} from "./utils/HttpRequestInterceptor";
 
 const routes: Routes = [
   {path: "", component: HomeComponent},
@@ -26,13 +29,15 @@ const routes: Routes = [
     RegistrationComponent,
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     NgbModule,
     RouterModule.forRoot(routes),
     BsDropdownModule.forRoot(),
-    AlertModule.forRoot()
+    AlertModule.forRoot(),
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true},],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
